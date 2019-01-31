@@ -1,0 +1,2 @@
+include ':template-sample'
+//project(":treeview").projectDir = new File("library/treeview")
