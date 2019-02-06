@@ -2,6 +2,7 @@ package com.androidwind.template.sample.ui;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.androidwind.template.sample.R;
 import com.androidwind.template.sample.base.BaseActivity;
@@ -24,7 +25,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         permissionsCheck();
     }
 

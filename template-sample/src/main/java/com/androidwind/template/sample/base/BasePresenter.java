@@ -4,30 +4,30 @@ import com.androidwind.template.sample.constant.Constants;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
+
+import la.xiong.androidquick.ui.base.BaseContract;
 
 /**
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class BasePresenter<V> {
+public class BasePresenter<V extends BaseContract.BaseView> implements BaseContract.BasePresenter<V> {
     protected Reference<V> mRefView;
 
-    protected CompositeSubscription mCompositeSubscription;
-
-    protected void unSubscribe() {
-        if (mCompositeSubscription != null) {
-            mCompositeSubscription.unsubscribe();
-        }
-    }
-
-    protected void addSubscription(Subscription subscription) {
-        if (mCompositeSubscription == null) {
-            mCompositeSubscription = new CompositeSubscription();
-        }
-        mCompositeSubscription.add(subscription);
-    }
+//    protected CompositeSubscription mCompositeSubscription;
+//
+//    protected void unSubscribe() {
+//        if (mCompositeSubscription != null) {
+//            mCompositeSubscription.unsubscribe();
+//        }
+//    }
+//
+//    protected void addSubscription(Subscription subscription) {
+//        if (mCompositeSubscription == null) {
+//            mCompositeSubscription = new CompositeSubscription();
+//        }
+//        mCompositeSubscription.add(subscription);
+//    }
 
     protected V getView() {
         if (!isViewAttached()) throw new IllegalStateException(Constants.EXCEPTION_MVP_VIEW_NOT_ATTACHED);
@@ -38,14 +38,13 @@ public class BasePresenter<V> {
         return mRefView != null && mRefView.get() != null;
     }
 
-    //attach
-    protected void initVM(V v) {
-        mRefView = new WeakReference<>(v);
+    @Override
+    public void attachView(V view) {
+        mRefView = new WeakReference<>(view);
     }
 
-    //detach
-    public void onDestroy() {
-        unSubscribe();
+    @Override
+    public void detachView() {
         if (mRefView != null) {
             mRefView.clear();
             mRefView = null;

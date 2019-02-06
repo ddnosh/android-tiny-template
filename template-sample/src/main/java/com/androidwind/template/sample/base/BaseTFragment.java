@@ -23,14 +23,15 @@ public abstract class BaseTFragment<T extends BasePresenter> extends BaseFragmen
         super.onCreate(savedInstanceState);
         //dagger2
         initInjector();
-        if (this instanceof BaseView)
-            mPresenter.initVM(this);
+        if (mPresenter != null) {
+            mPresenter.attachView(this);
+        }
     }
 
     @Override
     public void onDestroy() {
         if (mPresenter != null) {
-            mPresenter.onDestroy();
+            mPresenter.detachView();
             mPresenter = null;
         }
         super.onDestroy();

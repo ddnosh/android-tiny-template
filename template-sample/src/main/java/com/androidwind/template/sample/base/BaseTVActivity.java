@@ -32,15 +32,16 @@ public abstract class BaseTVActivity<T extends BasePresenter, V extends ViewData
         LogUtil.i(TAG, "onCreate:" + getClass().getSimpleName());
         //dagger2
         initInjector();
-        if (this instanceof BaseView)
-            mPresenter.initVM(this);//如果实现了BaseView这个接口的类，就将实例化过的View和Model传入
+        if (mPresenter != null) {
+            mPresenter.attachView(this);
+        }
         super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void onDestroy() {
         if (mPresenter != null) {
-            mPresenter.onDestroy();
+            mPresenter.detachView();
             mPresenter = null;
         }
         super.onDestroy();

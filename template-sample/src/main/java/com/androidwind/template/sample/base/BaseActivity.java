@@ -3,7 +3,6 @@ package com.androidwind.template.sample.base;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.androidwind.template.sample.ui.FrameActivity;
 
 import la.xiong.androidquick.tool.LogUtil;
@@ -65,4 +64,5 @@ public abstract class BaseActivity extends QuickActivity {
             return super.getGoIntent(clazz);
         }
     }
+
 }

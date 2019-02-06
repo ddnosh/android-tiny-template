@@ -37,7 +37,7 @@ public class WebViewActivity extends BaseActivity {
     }
 
     @Override
-    protected void initViewsAndEvents() {
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
         initData();
     }
 
