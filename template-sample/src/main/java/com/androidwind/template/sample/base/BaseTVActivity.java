@@ -10,7 +10,6 @@ import com.androidwind.template.sample.injector.component.DaggerActivityComponen
 import com.androidwind.template.sample.injector.module.ActivityModule;
 
 import javax.inject.Inject;
-
 import la.xiong.androidquick.tool.LogUtil;
 
 /**

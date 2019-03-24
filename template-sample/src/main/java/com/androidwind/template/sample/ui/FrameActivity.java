@@ -39,7 +39,8 @@ public class FrameActivity extends BaseTActivity {
                 if (fragment != null) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commitAllowingStateLoss();
                 }
-            } else {
+            }
+            else {
                 LogUtil.e(TAG, " the fragment class is not exist!!!");
             }
         }

@@ -1,2 +1,2 @@
-include ':template-sample'
+include ':template-sample', ':template-sample-kotlin'
 //project(":treeview").projectDir = new File("library/treeview")

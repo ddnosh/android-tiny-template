@@ -30,7 +30,9 @@ public class BasePresenter<V extends BaseContract.BaseView> implements BaseContr
 //    }
 
     protected V getView() {
-        if (!isViewAttached()) throw new IllegalStateException(Constants.EXCEPTION_MVP_VIEW_NOT_ATTACHED);
+        if (!isViewAttached()) {
+            throw new IllegalStateException(Constants.EXCEPTION_MVP_VIEW_NOT_ATTACHED);
+        }
         return mRefView.get();
     }
 
