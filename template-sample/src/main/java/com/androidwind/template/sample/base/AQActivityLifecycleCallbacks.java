@@ -1,4 +1,4 @@
-package com.androidwind.template.sample.ui;
+package com.androidwind.template.sample.base;
 
 import android.app.Activity;
 import android.app.Application;

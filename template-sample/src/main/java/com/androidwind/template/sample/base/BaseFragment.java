@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.androidwind.template.sample.ui.FrameActivity;
-
+import la.xiong.androidquick.eventbus.EventCenter;
 import la.xiong.androidquick.ui.base.QuickFragment;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
 
 /**
  * @author  ddnosh

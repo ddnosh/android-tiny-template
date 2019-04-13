@@ -33,8 +33,6 @@ android {
         jumboMode true
         //max heap size
         javaMaxHeapSize "4g"
-        //65536
-        incremental true
         //pre build
         preDexLibraries = true
         //thread count
@@ -48,7 +46,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'la.xiong.androidquick:AndroidQuick:1.1.6'
+    compile 'la.xiong.androidquick:AndroidQuick:1.2.0'
 
     //butterknife
     annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"

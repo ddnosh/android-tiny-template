@@ -1,4 +1,4 @@
-package com.androidwind.template.sample.ui;
+package com.androidwind.template.sample.feature.business1;
 
 import android.Manifest;
 import android.content.Intent;

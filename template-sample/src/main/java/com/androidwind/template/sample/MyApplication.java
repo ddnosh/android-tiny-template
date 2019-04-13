@@ -6,11 +6,11 @@ import com.androidwind.template.sample.crash.CrashHandler;
 import com.androidwind.template.sample.injector.component.ApplicationComponent;
 import com.androidwind.template.sample.injector.component.DaggerApplicationComponent;
 import com.androidwind.template.sample.injector.module.ApplicationModule;
-import com.androidwind.template.sample.ui.AQActivityLifecycleCallbacks;
+import com.androidwind.template.sample.base.AQActivityLifecycleCallbacks;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
-import la.xiong.androidquick.network.retrofit.RetrofitManager;
+import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
 import la.xiong.androidquick.tool.SpUtil;
 import la.xiong.androidquick.tool.ToastUtil;
 import spa.lyh.cn.statusbarlightmode.ImmersionConfiguration;

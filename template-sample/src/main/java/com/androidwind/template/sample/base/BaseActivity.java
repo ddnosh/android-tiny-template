@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.androidwind.template.sample.ui.FrameActivity;
-
+import la.xiong.androidquick.eventbus.EventCenter;
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.ui.base.QuickActivity;
-import la.xiong.androidquick.ui.eventbus.EventCenter;
 
 /**
  * @Description: 第一种类型的BaseActivity

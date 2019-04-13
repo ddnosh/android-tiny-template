@@ -1,4 +1,4 @@
-package com.androidwind.template.sample.webview;
+package com.androidwind.template.sample.base;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
@@ -11,7 +11,6 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.androidwind.template.sample.R;
-import com.androidwind.template.sample.base.BaseActivity;
 
 import butterknife.BindView;
 import la.xiong.androidquick.tool.StringUtil;

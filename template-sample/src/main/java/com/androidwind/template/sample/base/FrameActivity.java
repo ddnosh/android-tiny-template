@@ -1,9 +1,8 @@
-package com.androidwind.template.sample.ui;
+package com.androidwind.template.sample.base;
 
 import android.os.Bundle;
 
 import com.androidwind.template.sample.R;
-import com.androidwind.template.sample.base.BaseTActivity;
 
 import la.xiong.androidquick.tool.LogUtil;
 import la.xiong.androidquick.tool.ReflectUtil;
