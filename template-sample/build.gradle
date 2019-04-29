@@ -4,7 +4,7 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
-        applicationId "la.xiong.androidquick"
+        applicationId "com.androidwind.template.sample"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -62,4 +62,6 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     //stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
+    //constraintlayout
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
