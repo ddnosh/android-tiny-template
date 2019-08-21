@@ -1,72 +1,35 @@
 package com.androidwind.template.sample;
 
-import android.app.Activity;
-
-import com.androidwind.template.sample.crash.CrashHandler;
-import com.androidwind.template.sample.injector.component.ApplicationComponent;
-import com.androidwind.template.sample.injector.component.DaggerApplicationComponent;
-import com.androidwind.template.sample.injector.module.ApplicationModule;
-import com.androidwind.template.sample.base.AQActivityLifecycleCallbacks;
-import com.facebook.stetho.Stetho;
-import com.squareup.leakcanary.LeakCanary;
-
-import la.xiong.androidquick.module.network.retrofit.RetrofitManager;
-import la.xiong.androidquick.tool.SpUtil;
-import la.xiong.androidquick.tool.ToastUtil;
+import com.androidwind.template.sample.log.LogConfig;
+import com.androidwind.template.sample.log.TinyLogProcessor;
 
 /**
- * @author  ddnosh
+ * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
 public class MyApplication extends android.support.multidex.MultiDexApplication {
 
-    private static MyApplication sINSTANCE;
-
-    private AQActivityLifecycleCallbacks lifecycleCallback;
+    private static MyApplication INSTANCE;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
         //get application
-        if (sINSTANCE == null) {
-            sINSTANCE = this;
+        if (INSTANCE == null) {
+            INSTANCE = this;
         }
-        //lifecyclecallback
-        lifecycleCallback = new AQActivityLifecycleCallbacks();
-        registerActivityLifecycleCallbacks(lifecycleCallback);
-        //init ToastUtil
-        ToastUtil.register(this);
-        //init SpUtil
-        SpUtil.init(this);
-        //init retrofit url
-        RetrofitManager.initBaseUrl("http://gank.io/api/");
-        //init stetho
-        Stetho.initializeWithDefaults(this);
-        //init crashhandler
-        CrashHandler.getInstance().init(this);
+        //log
+        AndroidQuick
+                // .configLog()
+                .configLog(new TinyLogProcessor())
+                .setEnable(BuildConfig.DEBUG)
+                .setWritable(true)
+                .setLevel(LogConfig.LOG_V);
+        //make effective
+        AndroidQuick.launch();
     }
 
     public static synchronized MyApplication getInstance() {
-        return sINSTANCE;
+        return INSTANCE;
     }
-
-    public static Activity getCurrentVisibleActivity() {
-        return sINSTANCE.lifecycleCallback.getCurrentVisibleActivity();
-    }
-
-    public static boolean isInForeground() {
-        return null != sINSTANCE && null != sINSTANCE.lifecycleCallback && sINSTANCE.lifecycleCallback.isInForeground();
-    }
-
-    //dagger2:get ApplicationComponent
-    public static ApplicationComponent getApplicationComponent() {
-        return DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(sINSTANCE)).build();
-    }
-
 }
