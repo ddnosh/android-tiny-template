@@ -57,6 +57,21 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
-    implementation 'la.xiong.androidquick:AndroidQuick:1.2.6'
-    implementation 'com.androidwind:tinylog:1.0.5'
+    api 'la.xiong.androidquick:AndroidQuick:1.2.6'
+    //TinyLog
+    api 'com.androidwind:tinylog:1.0.6'
+    //TinyPermission
+    api 'com.androidwind:tinypermission:1.0.0'
+    //TinyHttp
+    api 'com.androidwind:tinyhttp:2.0.3'
+    //Glide
+    //Glide图片加载
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    api 'jp.wasabeef:glide-transformations:4.0.0@aar'//图片转换工具
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    //Fresco
+    api 'com.facebook.fresco:fresco:1.5.0'
+    api 'com.facebook.fresco:animated-gif:1.5.0' //用于Fresco加载gif动图
+    api 'com.facebook.fresco:imagepipeline-okhttp3:1.3.0'//用于替换fresco的网络加载为okhttp
+    api 'jp.wasabeef:fresco-processors:2.1.0@aar'//用于提供fresco的各种图片变换
 }

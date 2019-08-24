@@ -14,8 +14,7 @@ public class TinyLogProcessor implements ILogProcessor {
             TinyLog.config()
                     .setEnable(logConfig.isEnable())
                     .setWritable(logConfig.isWritable())
-                    .setLogLevel(logConfig.getLevel())
-                    .apply();
+                    .setLogLevel(logConfig.getLevel());
         }
     }
 

@@ -11,10 +11,40 @@
         android:id="@+id/btn_log"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Click for Log"
+        android:layout_marginEnd="8dp"
         android:onClick="clickLog"
+        android:text="Click for Log"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@+id/btn_log"
+        app:layout_constraintTop_toBottomOf="@+id/btn_log">
+
+        <Button
+            android:id="@+id/btn_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickImage"
+            android:text="Click for image"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_demo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            />
+        <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/iv_demo"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp" />-->
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
