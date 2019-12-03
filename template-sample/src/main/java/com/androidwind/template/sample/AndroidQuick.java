@@ -3,7 +3,7 @@ package com.androidwind.template.sample;
 import com.androidwind.template.sample.image.GlideProcessor;
 import com.androidwind.template.sample.image.IImageProcessor;
 import com.androidwind.template.sample.image.ImageConfig;
-import com.androidwind.template.sample.image.TinyProcessor;
+import com.androidwind.template.sample.image.TinyImageProcessor;
 import com.androidwind.template.sample.log.DefaultLogProcessor;
 import com.androidwind.template.sample.log.ILogProcessor;
 import com.androidwind.template.sample.log.LogConfig;
@@ -68,7 +68,7 @@ public class AndroidQuick {
             return (T) mIImageProcessor;
         }
         // return (T) new GlideProcessor();
-        return (T) new TinyProcessor();
+        return (T) new TinyImageProcessor();
     }
 
     //image配置入口

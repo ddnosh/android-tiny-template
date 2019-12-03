@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 
+import com.androidwind.http.HttpRequestBuilder;
 import com.androidwind.http.HttpUtil;
 import com.androidwind.http.TinyHttp;
 import com.androidwind.http.callback.BitmapHttpCallBack;
@@ -18,7 +19,7 @@ import la.xiong.androidquick.tool.StringUtil;
  * @author ddnosh
  * @website http://blog.csdn.net/ddnosh
  */
-public class TinyProcessor implements IImageProcessor {
+public class TinyImageProcessor implements IImageProcessor {
 
     private ImageConfig mImageConfig;
 
@@ -30,9 +31,10 @@ public class TinyProcessor implements IImageProcessor {
     @Override
     public void loadNet(String url, ImageView imageView) {
         if (!StringUtil.isEmpty(url)) {
-            TinyHttp.get()
-                    .url(url)
-                    .callback(new BitmapHttpCallBack() {
+            HttpRequestBuilder builder = TinyHttp.get();
+            builder.url(url);
+            //根据ImageConfig配置信息进行builder的配置
+            builder.callback(new BitmapHttpCallBack() {
                         @Override
                         public void OnMainSuccess(final Bitmap bitmap) {
                             TinyTaskExecutor.execute(new Task<Bitmap>() {

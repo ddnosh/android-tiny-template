@@ -339,7 +339,7 @@ public class FrescoProcessor implements IImageProcessor {
 
         if (imageView instanceof SimpleDraweeView) {
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) imageView;
-            setHierarchay(simpleDraweeView.getHierarchy(), loadOption);
+            setHierarchy(simpleDraweeView.getHierarchy(), loadOption);
             ImageRequest imageRequest = getImageRequest(uri, simpleDraweeView, loadOption);
             DraweeController draweeController = getController(imageRequest, simpleDraweeView.getController());
             simpleDraweeView.setController(draweeController);
@@ -349,7 +349,7 @@ public class FrescoProcessor implements IImageProcessor {
     }
 
     //对Hierarchy进行设置，如各种状态下显示的图片
-    private void setHierarchay(GenericDraweeHierarchy hierarchy, LoadOption loadOption) {
+    private void setHierarchy(GenericDraweeHierarchy hierarchy, LoadOption loadOption) {
         mImageConfig = AndroidQuick.getImageConfig();
         if (loadOption == null) {
             if (mImageConfig.isShowTransition()) {

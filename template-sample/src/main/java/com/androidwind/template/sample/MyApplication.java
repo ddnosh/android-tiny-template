@@ -1,7 +1,6 @@
 package com.androidwind.template.sample;
 
-import com.androidwind.template.sample.image.FrescoProcessor;
-import com.androidwind.template.sample.image.TinyProcessor;
+import com.androidwind.template.sample.image.TinyImageProcessor;
 import com.androidwind.template.sample.log.LogConfig;
 import com.androidwind.template.sample.log.TinyLogProcessor;
 
@@ -20,16 +19,15 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
         if (INSTANCE == null) {
             INSTANCE = this;
         }
-        //log
+        //日志模块
         AndroidQuick
                 // .configLog()
                 .configLog(new TinyLogProcessor())
                 .setEnable(BuildConfig.DEBUG)
                 .setWritable(true)
                 .setLevel(LogConfig.LOG_V);
-        //image
-        //图片加载模块（可替换，demo演示了如何使用Fresco替换默认的Glide）
-        AndroidQuick.configImage(new TinyProcessor())//配置默认的Glide
+        //图片加载模块
+        AndroidQuick.configImage(new TinyImageProcessor())//TinyImage
                 // AndroidQuick.configImage()//配置默认的Glide
                 // AndroidQuick.configImage(new FrescoProcessor()) //传入Fresco管理者进行替换，注意，替换为Fresco后，相关的ImageView需换成SimpleDraweeView
                 .setLoadingResId(R.mipmap.ic_image_loading)//设置“加载中”状态时显示的图片
@@ -43,7 +41,7 @@ public class MyApplication extends android.support.multidex.MultiDexApplication 
 //                .setDiskCacheFile(file)//设置具体的磁盘缓存地址，传入的file需为文件夹
 //                .setDiskCacheSize(200*1024*1024)//设置磁盘缓存大小，单位byte，默认250M
 //                .setIsDiskCacheExternal(true);//设置磁盘缓存地址是否在外部存储中，默认false
-        //make effective
+        //上面是配置, 这里是使所有配置生效
         AndroidQuick.launch();
     }
 
